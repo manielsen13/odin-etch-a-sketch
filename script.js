@@ -11,7 +11,39 @@ const numColumns = 16;
 
 addRows();
 addSquares();
+makeScreenWork()
 
+
+
+
+
+
+
+
+
+
+
+//shake button functionality
+const shakeBtn = document.querySelector(".shakeBtn");
+
+shakeBtn.addEventListener("click", (e) => {
+    const everySquare = document.querySelectorAll("square");
+    for (let square of everySquare) {
+        square.style.backgroundColor = "white";
+    }
+})
+
+//add functionality to the squares (sketch screen)
+function makeScreenWork () {
+    const everySquare = document.querySelectorAll("square");
+    for (let square of everySquare) {
+        square.addEventListener("mouseover", (e) => {
+            square.style.backgroundColor = "black";
+        })
+    }
+}
+
+//grid creation functions
 function createRow() {
     const row = document.createElement("row");
     row.style.display = "flex";
@@ -35,16 +67,16 @@ function addSquares() {
     }
 }
 
-
 function createSquare() {
     console.log("making square...")
     const square = document.createElement("square");
     square.style.borderStyle = "solid";
     square.style.borderColor = "black";
-    square.style.minHeight = "20px";
-    square.style.minWidth = "20px";
+    square.style.minHeight = "30px";
+    square.style.minWidth = "30px";
     square.style.boxSizing = "border-box";
     square.style.borderWidth = "thin";
+    square.style.backgroundColor = "white";
     return square;
 }
 
