@@ -9,6 +9,8 @@ body {
 .sketchPadScreen {
     display: flex;
     flex-direction: column;
+    min-width: 480px;
+    min-height: 480px;
     padding: 30px;
     justify-content: center;
     align-items: center;

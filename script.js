@@ -6,8 +6,8 @@
 
 const sketchPadScreen = document.querySelector(".sketchPadScreen");
 
-const numRows = 16;
-const numColumns = 16;
+const numRows = 1;
+const numColumns = 1;
 
 addRows();
 addSquares();
@@ -51,7 +51,7 @@ function createRow() {
 }
 
 function addRows () {
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < numRows; i++) {
         const row = createRow()
         sketchPadScreen.appendChild(row)
     }
@@ -59,8 +59,8 @@ function addRows () {
 
 function addSquares() {
     const rowList = document.querySelectorAll("row");
-    for (let i = 0; i < 16; i++) {
-        for (let j = 0; j < 16; j++) {
+    for (let i = 0; i < numRows; i++) {
+        for (let j = 0; j < numColumns; j++) {
             const square = createSquare();
             rowList[i].appendChild(square);
         }
@@ -68,12 +68,12 @@ function addSquares() {
 }
 
 function createSquare() {
-    console.log("making square...")
+    let squareSize = 480/numRows;
     const square = document.createElement("square");
     square.style.borderStyle = "solid";
     square.style.borderColor = "black";
-    square.style.minHeight = "30px";
-    square.style.minWidth = "30px";
+    square.style.minHeight = squareSize.toString() + "px"
+    square.style.minWidth = squareSize.toString() + "px"
     square.style.boxSizing = "border-box";
     square.style.borderWidth = "thin";
     square.style.backgroundColor = "white";
