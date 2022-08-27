@@ -6,13 +6,12 @@
 
 const sketchPadScreen = document.querySelector(".sketchPadScreen");
 
-const numRows = 1;
-const numColumns = 1;
+const numRows = 10;
+const numColumns = 10;
 
 addRows();
 addSquares();
-makeScreenWork()
-
+makeScreenWork();
 
 
 
@@ -78,6 +77,14 @@ function createSquare() {
     square.style.borderWidth = "thin";
     square.style.backgroundColor = "white";
     return square;
+}
+
+//board reset functions
+function clearSquares () {
+    for (let i = 0; i < numRows; i++) {
+        var child = sketchPadScreen.lastElementChild;
+        sketchPadScreen.removeChild(child);
+    }
 }
 
 
