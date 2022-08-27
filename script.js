@@ -6,8 +6,8 @@
 
 const sketchPadScreen = document.querySelector(".sketchPadScreen");
 
-const numRows = 10;
-const numColumns = 10;
+let numRows = 10;
+let numColumns = 10;
 
 addRows();
 addSquares();
@@ -19,7 +19,22 @@ makeScreenWork();
 
 
 
+//reset button functionality
+const changeNumSquaresBtn = document.querySelector(".erase");
 
+changeNumSquaresBtn.addEventListener("click", (e) => {
+    let newNum = parseInt(prompt("How many squares would you like per row? Please enter a valid number between 1 and 100."));
+    if (newNum != NaN && newNum >= 1 && newNum <= 100) {
+        clearSquares()
+        numRows = Math.floor(newNum);
+        numColumns = Math.floor(newNum);
+        addRows();
+        addSquares();
+        makeScreenWork();
+    } else {
+        return;
+    }
+})
 
 
 //shake button functionality
